@@ -1,0 +1,27 @@
+{% extends 'pets/main.html '%}
+
+{% block head %}
+Welcome to PetFax!
+{% endblock %} 
+
+{% block body %}
+<div class="container">
+    <H1>PetFax</H1>
+    <div class="callout">
+        Welcome to PetFax! We are a no-kill shelter dedicated to finding our pets loving homes and educating the public with fun facts.
+    </div>
+    <div class="pets-container">
+<div class="container">
+    <H1>{{ pet.pet_name }}</H1>
+    <div class="callout">
+        <span style="font-weight: 800">Did you know?</span><br/>{{ pet.pet_fact }}
+    </div>  
+
+    <div class="pets-container">
+        <div class="show-pet">
+            <img src="{{ url_for('static', filename='assets/') }}{{ pet.pet_photo }}"/>
+        </div>
+    </div>
+    <a href="/pets">⟨　Go back</a>
+</div>
+{% endblock %} 
