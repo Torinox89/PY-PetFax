@@ -1,4 +1,7 @@
 from flask import Flask, render_template, url_for 
+from flask_migrate import Migrate 
+
+
 
 '''
 #Application Factory.
@@ -14,9 +17,16 @@ def create_app():
 
 #Any config required here: custom logic.
     
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:tundrass@localhost:5432/petfax'
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False             
+
+    from . import models 
+    models.db.init_app(app)
+    migrate = Migrate(app, models.db)
+ 
     #Route on the app instance
     @app.route('/')
-    def hello(): 
+    def index():      #def hello():
         return 'Hello, PetFax!'
 
   # register pet blueprint 
@@ -32,3 +42,4 @@ def create_app():
 
     # return the app 
     return app
+    

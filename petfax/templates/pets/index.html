@@ -2,7 +2,7 @@
 {% extends 'pets/main.html '%}
 
 {% block head %}
-Welcome to PetFax!   
+ 
 {% endblock %} 
 
 {% block body %}
@@ -15,8 +15,8 @@ Welcome to PetFax!
     <div class="pets-container"></div>
             <div class="pet">
                 <H2>{{ pet.pet_name }}</H2>
-                <img src="{{ url_for('static', filename='assets/') }}{{ pet.pet_photo }}"/>
-                <a href="/pets/{{ pet.pet_id }}">Learn more ⟩</a>
+                <img src="{{ pet.pet_photo }}"/>
+                <a href="{{ pet.pet_id }}">Learn more ⟩</a>
             </div>
     </div>
             <div class="callout">

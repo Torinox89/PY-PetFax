@@ -8,7 +8,8 @@ Open and red  .json file
 pets variable loaded with data (pets.json file)
 '''
 pets = json.load(open('pets.json'))    #Pass the entire open function as an argument to json.load()
-print(pets)
+
+
 
 
 #Blueprint instance.
